@@ -26,4 +26,14 @@
  */
 - (void)addStickerView:(UIImage*)image atPoint:(CGPoint)point stickerWidth:(CGFloat)stickerWidth;
 
+/**
+ *  隐藏所有贴纸的边框
+ */
+- (void)hideAllStickerViewBorder;
+
+/**
+ *  移除所有贴纸
+ */
+- (void)removeAllStickerView;
+
 @end

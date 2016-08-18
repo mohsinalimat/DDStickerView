@@ -34,12 +34,7 @@
 
 - (void)touchOutside:(UITapGestureRecognizer *)touchGesture
 {
-    for (int i = 0; i < self.subviews.count; i++) {
-        DDStickerTemplateView *v = self.subviews[i];
-        if ([v isKindOfClass:[DDStickerTemplateView class]]) {
-            [v setOperateHidden:YES];
-        }
-    }
+    [self hideAllStickerViewBorder];
 }
 
 /**
@@ -65,12 +60,26 @@
 }
 
 /**
+ *  隐藏所有贴纸的边框
+ */
+- (void)hideAllStickerViewBorder{
+    for (int i = 0; i < self.subviews.count; i++) {
+        DDStickerTemplateView *v = self.subviews[i];
+        if ([v isKindOfClass:[DDStickerTemplateView class]]) {
+            [v setOperateHidden:YES];
+        }
+    }
+}
+
+/**
  *  移除所有贴纸
  */
 - (void)removeAllStickerView{
     for (int i = 0; i < self.subviews.count; i++) {
         DDStickerTemplateView *v = self.subviews[i];
-        [v removeFromSuperview];
+        if ([v isKindOfClass:[DDStickerTemplateView class]]) {
+            [v removeFromSuperview];
+        }
     }
 }
 
